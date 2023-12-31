@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dexter-Hayward - Symbolic Modified Nodal Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dexter-Hayward</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./source.html" rel="" target="">
+ <span class="menu-text">Source</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#python-code" id="toc-python-code" class="nav-link" data-scroll-target="#python-code">Python code</a>
+  <ul class="collapse">
+  <li><a href="#code-description" id="toc-code-description" class="nav-link" data-scroll-target="#code-description">Code description</a></li>
+  <li><a href="#code-validation" id="toc-code-validation" class="nav-link" data-scroll-target="#code-validation">Code validation</a></li>
+  </ul></li>
+  <li><a href="#users-guide" id="toc-users-guide" class="nav-link" data-scroll-target="#users-guide">User’s guide</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
+  <ul class="collapse">
+  <li><a href="#circuit-equations" id="toc-circuit-equations" class="nav-link" data-scroll-target="#circuit-equations">Circuit equations</a></li>
+  <li><a href="#symbolic-solution" id="toc-symbolic-solution" class="nav-link" data-scroll-target="#symbolic-solution">Symbolic solution</a></li>
+  <li><a href="#the-jupyter-notebook" id="toc-the-jupyter-notebook" class="nav-link" data-scroll-target="#the-jupyter-notebook">The Jupyter notebook</a></li>
+  </ul></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Symbolic Modified Nodal Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Last update: 30 Nov 2023</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This nodal analysis code started as a translation from some C code to generate a nodal admittance matrix that I had written in 1988. I wrote this code for two reasons. Free versions of Spice for the PC didn’t exist at the time and I wanted to use some of the code from the Numerical Recipes in C [1]. The original C code worked well and calculated numeric solutions. I then started writing some C code to generate the matrices with symbolic values and then intended to use LISP to symbolically solve the equations. I didn’t get too far with this effort. The LISP code would generate huge symbolic strings with no simplification. The output was a big pile of trash that was not in the least bit useful or decipherable.</p>
+<p>In 2014, I started to use python for my little coding projects and engineering calculations. There are some nice python libraries for numeric and symbolic calculations (such as <a href="https://numpy.org/">NumPy</a> and <a href="https://www.scipy.org/">SymPy</a>), so I decided to try writing a python script to generate the node equations based on the old C code I had written many years before. Part way into this project I discovered that there is a new nodal analysis technique being taught today in engineering school called the modified nodal analysis [2][3]. My motivation for reviving this coding project is my continued interest in circuit analysis and synthesis.</p>
+<p>The modified nodal analysis provides an algorithmic method for generating systems of independent equations for linear circuit analysis. Some of my younger colleagues at work were taught this method, but I never heard of it until a short time ago. These days, I never really analyze a circuit by hand, unless it’s so simple that you can almost do it by inspection. Most problems that an electrical engineer encounters on the job are complex enough that they use computers to analyze the circuits. <a href="http://www.linear.com/solutions/ltspice">LTspice</a> is the version of Spice that I use, since it’s free and does a good job converging when analyzing switching circuits.</p>
+</section>
+<section id="python-code" class="level2">
+<h2 class="anchored" data-anchor-id="python-code">Python code</h2>
+<p>My code started initially by following Erik Cheever’s Analysis of Resistive Circuits MATLAB code [4], to generate modified nodal equations. I somewhat followed his MATLAB file for resistors, capacitors, opamps and independent sources. The naming of the matrices follows his convention. The preprocessor and parser code was converted from my old C code. The use of pandas for a data frame is new and SymPy is used to do the math and the use of element stamps is from [5].</p>
+<p>Inductors are being addressed in the D matrix, which is different than the way Erik Cheever’s code works. Erik’s code puts inductors into the G matrix as 1/s/L. My code puts the inductor contribution into the D matrix. Coupled inductors also affect the D matrix, so it makes sense to allow the inductors to be in the D matrix rather than the G matrix.</p>
+<p><strong>Network equations:</strong> The network equations are a set of independent equations expressed in this code in matrix form. There is an equation for each node based on Kirchhoff’s current law <a href="https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws">KCL</a> and an equation for each current unknown. The current unknowns are the currents from the voltages sources, op amps, voltage controlled voltage sources, current controlled voltage sources, current controlled current sources and inductors.</p>
+<p>The network equations are in matrix form:</p>
+<p><span class="math display">\[A\cdot X = Z\]</span></p>
+<p>The A matrix describes the connectivity of the resistors, capacitors and G type (VCCS) circuit elements. The column vector X are the unknown node voltages and unknown currents terms from the voltage sources and inductors. The column vector Z is made of the known voltages and currents. The A matrix is formed by four sub matrices, G, B, C and D, which are described below.</p>
+<p><span class="math display">\[A = \begin{bmatrix}G B\\C D\end{bmatrix}\]</span></p>
+<p>The matrix G is formed from the coefficients representing the KCL equations for each node. The positive diagonal of <span class="math inline">\(G_{k,k}\)</span> are the conductance terms of the resistor and capacitor elements connected to node k. The off diagonal terms of <span class="math inline">\(G_{k,j}\)</span> are the resistors and capacitor conductances connecting node k to node j. G type elements (VCCS) have input to the G matrix at the connection and controlling node positions.</p>
+<p>The B matrix describes the connectivity of the unknown branch currents. Independent voltage sources, opamps, H, F and E type elements as well as inductors have inputs to the B matrix.</p>
+<p>The C matrix describes the connectivity of the unknown branch currents and is mainly the transpose of B matrix, with the exception of the F type elements (CCCS) and includes the E type value.</p>
+<p>The D matrix describes also connectivity of the unknown currents. The D matrix is composed of zeros unless there are controlled sources and inductors in the network.</p>
+<p>The X vector is comprised of the V and J vectors as shown below.</p>
+<p><span class="math display">\[X = \begin{bmatrix}V\\J\end{bmatrix}\]</span></p>
+<p>The V vector contains the node voltages which are the voltage unknowns to be solved for. The J vector contains the unknown currents from each voltage source.</p>
+<p>The Z vector is comprised of the I and Ev vectors as shown below.</p>
+<p><span class="math display">\[Z = \begin{bmatrix}I\\Ev\end{bmatrix}\]</span></p>
+<p>The I vector contains the known currents and the Ev vector contains the known voltages. The Ev designation is used for the voltage vector (and not simply ‘E’) because SymPy uses e and E sometimes for the mathematical constant 2.71, sometimes called <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler’s number</a>. The use of E or e as a symbol in SymPy was causing errors when the code was run.</p>
+<p>Putting all the parts together:</p>
+<p><span class="math display">\[\begin{bmatrix}G B\\C D\end{bmatrix} \cdot \begin{bmatrix}V\\J\end{bmatrix} = \begin{bmatrix}I\\Ev\end{bmatrix}\]</span></p>
+<p><strong>Stamps:</strong> Stamps are templates for modifying the B, C and D matrices and facilitate the construction of the matrices. The stamps used in this implementation of the MNA follow the stamps of [5].</p>
+<section id="code-description" class="level3">
+<h3 class="anchored" data-anchor-id="code-description">Code description</h3>
+<p>The code is divided in the following sections.</p>
+<p>Preprocessor: The preprocessor reads in the netlist text file and removes comments, extra spaces and blank lines. The first letter of the element type is capitalized to make subsequent parsing of the file easier. The number of lines are counted and the number of entries on each line are checked to make sure the count is consistent with the element type.</p>
+<p>Parser: The parser code loads the preprocessed netlist into a data frame. A report is generated which consists of a count of the element types in the netlist.</p>
+<p>Matrix formulation: Each of the matrices and vectors are generated.</p>
+<p>Circuit equation generation: The circuit equations are generated in a for loop. Sympy automatically does some simplification according to its default settings. Two for loops perform the matrix multiplication on the equation.<br>
+<span class="math inline">\(A\cdot X = Z\)</span></p>
+</section>
+<section id="code-validation" class="level3">
+<h3 class="anchored" data-anchor-id="code-validation">Code validation</h3>
+<p>Basic validation of the code consisted of analyzing simple networks and examining the results. A more comprehensive evaluation of the code was performed by solving test circuits and comparing the results to LTSpice. As of October 2023 all the element types have been tested. See the circuits used for validation <a href="https://github.com/Tiburonboy/Symbolic-modified-nodal-analysis/tree/master/test%20circuits">here</a>. The validation circuits range from simple to large and complex. The largest validation circuit consist of 32 nodes, 59 branches and multiple instances all of the element types. For this large test circuit, there are small numerical differences between the Python modified nodal analysis (MNA) code results and the LTSpice solution, which are describe in the test report. Additionally, various interesting problem circuits have been solved using the MNA code and comparing the results to LTSpice. These problem circuits can also be found in the github repository. Code verification often looks at requirements or specifications versus what was implemented. This project didn’t have a formal set of requirements, only a general goal of implementing symbolic MNA using the Python libraries. No formal software or code verification is included.</p>
+</section>
+</section>
+<section id="users-guide" class="level2">
+<h2 class="anchored" data-anchor-id="users-guide">User’s guide</h2>
+<p>A netlist is text file that contains the connectivity information of the circuit. A netlist in the input to the analysis code and the output are a set of equations that can be solved for the unknown voltages and currents. The circuits are described in terms of the components and the connections to the other components. Netlist can be generated with a text editor or exported from a schematic capture program. <a href="http://www.linear.com/solutions/ltspice">LTspice</a> can be used to draw the schematic and a netlist can be exported to the python code to generate the network equations.</p>
+<p><strong>Netlist file format:</strong><br>
+A circuit description in spice, which is called a netlist, consists of a statements defining each circuit element and its connection to circuit nodes. A node is a any point on a circuit where two or more circuit elements meet. The nodes are numbered from 1 to N in any order and node 0 is the ground node or circuit common. A ground node is required. Choose a ground or reference node, which usually is taken to be at a potential of zero volt. All other node voltages constitute n unknowns. The nodes should be numbered in consecutive order. Each line in the netlist are either comments, spice directives or circuit elements.</p>
+<p>Spice directives are commands to spice and the first character on the line is a period. Comment lines start with a * or ;. The default file extension is ‘.net’. The python code does some preprocessing of the netlist to check the basic formatting of the netlist is correct.</p>
+<p>The preprocessor performs the following steps: - remove blank lines and comments - convert first letter of element name to uppercase - removes extra spaces between entries - counts number of entries on each line to make sure the count is correct and counts each element type</p>
+<p>The element types that are supported are resistors, capacitors, inductors, independent sources and controlled sources. Each line in the netlist file contains a circuit element.</p>
+<p>The format for the element description is</p>
+<pre><code>letterXXX n1 n2 value</code></pre>
+<p>Where:<br>
+letter signifies the element type, i.e.&nbsp;R, L, C, V, I, O, E, F, G, H or K<br>
+XXX is a string of letters or numbers that uniquely identify the element.<br>
+n1, n2 and value are the terminal nodes and the value of the element.</p>
+<p>The element types are described in the following sections.</p>
+<p><strong>Resistors, capacitors and inductors:</strong><br>
+The resistors, capacitors and inductors are described by the following line:</p>
+<pre><code>R/L/CXXXXXXX N1 N2 value </code></pre>
+<p>Where:<br>
+XXX = the name of the component, can be any length<br>
+N1 = the first terminal<br>
+N2 = the second terminal<br>
+Value = component value in ohms, farads or henrys.<br>
+For example, a resistor named R1 connected between nodes 1 and 2 with a value of 3000 ohms.</p>
+<pre><code>R1 2 4 3000  </code></pre>
+<p>Spice supports other parameters, but these are not allowed in this python implementation.</p>
+<p><strong>Coupled inductors:</strong><br>
+Two coupled inductors are described by the following line.</p>
+<pre><code>KXX LYY LZZ VALUE  </code></pre>
+<p>The parameters are:<br>
+LYY = the name of the first coupled inductor<br>
+LZZ = the name of the second coupled inductor<br>
+VALUE = the coefficient of coupling, K, where 0 &lt; K<br>
+The orientation of the inductors is determined by the first node, which is considered to be the dotted node. When LTspice generates a net list the phasing dot gets assocated with the negative node. This does not seem to affect the equations generated by the python code. LTspice uses the coupling coefficient, k. The symbolic equations use the mutual inductance, M.</p>
+<p><span class="math display">\[M = k\sqrt{L_1L_2}\]</span></p>
+<p><strong>Independent sources:</strong><br>
+A voltage source is described by the following line.</p>
+<pre><code>VXX N+ N- VALUE  </code></pre>
+<p>The parameters are:<br>
+N+ = the name of the positive terminal<br>
+N- = the name of the negative terminal<br>
+VALUE = the value of the DC voltage</p>
+<p>A current source is described by the following line.</p>
+<pre><code>IXX N+ N- VALUE  </code></pre>
+<p>The parameters are:<br>
+N+= the name of the positive terminal, current leaves this terminal (pointy end of the arrow)<br>
+N- = the name of the negative terminal VALUE = the value of the DC current</p>
+<p><strong>Controlled sources:</strong><br>
+The voltage-controlled dependent sources are defined using statements of the form</p>
+<pre><code>GXX or EXX nout+ nout- nc+ nc- gain  </code></pre>
+<p>where E is a voltage-controlled voltage source, G is a voltage-controlled current source, the output voltage is connected between nodes nout+ and nout-, and the control voltage is measured at node nc+ with respect to node nc-.<br>
+Examples:</p>
+<pre><code>E1 5 1 4 3 10</code></pre>
+<p>defines a voltage source that makes node 5 a voltage 10*(v4 − v3) above the voltage at node 1.</p>
+<pre><code>G1 2 1 5 8 50 </code></pre>
+<p>defines a current source connected between node 2 (the + node) and node 1 and supplying a current 50 *(v5 − v8).</p>
+<p>The current-controlled dependent sources are defined by statements of the form</p>
+<pre><code>FXX or HXX nout+ nout- vcontrol gain   </code></pre>
+<p>where F is a current-controlled current source, H is a current-controlled voltage source, and the output current source is connected between nodes nout+ and nout-, with positive current flowing through the source from node nout+ to nout-. The control current flows from the positive node of the source vcontrol through the source and out the negative node.<br>
+Examples:</p>
+<pre><code>Fds 11 9 Vsens 1.25</code></pre>
+<p>defines a current source connected from node 11 to node 9 that generates a current 1.25 times the current flowing through the source Vsens.</p>
+<pre><code>H1 30 20 V5 100</code></pre>
+<p>defines a voltage source connected from node 30 to node 20 and supplying a voltage 100 times the current through the source V5. It is frequently necessary to add a voltage source with value 0 volts to the circuit to sense the control current for these sources.</p>
+<p>The direction of positive controlling current flow is from the positive node, through the source, to the negative node of VNAM. VALUE is the current gain.</p>
+<p><strong>Op Amps:</strong><br>
+An opamp component is described by the following line.</p>
+<pre><code>OXX N+ N- Vout</code></pre>
+<p>The output of the opamp is a voltage source. Two input terminals are at the same potential.</p>
+<p>The op amp element is assumed to be an ideal op amp and use of this component is valid only when used in circuits with a DC path (a short or a resistor) from the output terminal to the negative input terminal of the op amp. No error checking is provided and if the condition is violated, the results will be likely erroneous. Need to work on implementing a better opamp model.</p>
+<p>Procedure:<br>
+1. Draw the circuit to be analyzed in LTSpice or some other schematic capture program. Label the nodes. The Symbolic Modified Network Analysis code will provide warnings for netlist formatting errors and non consecutive node numbering, but will still generate nodal equations which may be erroneous. Users should verify the results. 2. Export the netlist of the circuit and convert component values to units of Ohms, Farads and Henrys. Use scientific notation, for example, replace component values such as 2k with 2e3 and 2u with 2e-6.<br>
+3. Change Op Amp reference designators, for example U1 to O1 (capitol letter O, not zero).<br>
+4. Voltage sources and current sources need to be set to zero in some cases.<br>
+5. Modify the nodal analysis Jupyter notebook code to read the net list. Run all the cells in the notebook.<br>
+6. Copy the symbol list, the A, X and Z matrices, and the element values in dictionary format to a new notebook. See end of the nodal analysis Jupyter notebook where these items are displayed.<br>
+7. Review the <a href="https://github.com/Tiburonboy/Symbolic-modified-nodal-analysis/tree/master/test%20circuits">test</a> and <a href="https://github.com/Tiburonboy/Symbolic-modified-nodal-analysis/tree/master/Sample%20problems">problem</a> circuits for examples.</p>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>The example circuit contains a capactior, inductor, resistors along with independent and dependent sources. This circuit is from [6], page 69, figure 4.8, with modifications. The circuit was drawn in LTSpice and the circuit nodes are labeled. For no particular reason, the reference note was chosen to be the center node of the circuit and is connected to the ground symbol. AC analysis was performed at 1 rad/sec and over a range of frequencies. The results are compared to those obtained from LTSpice.</p>
+<p><img src="SMNA_example.png" class="img-fluid"></p>
+<p>The netlist from LTSpice is shown below with the V1 voltage source line editied.</p>
+<pre><code>* SMNA_example.asc
+R2 2 5 2
+V1 1 0 1
+I1 4 0 9
+V2 0 5 0
+E1 3 0 1 4 2
+F1 2 3 V2 2
+R1 1 4 2
+C1 1 2 1
+L1 4 3 1 Rser=0
+* ;.ac list   0.159154943091895
+.ac dec 100 0.1 100
+.backanno
+.end</code></pre>
+<section id="circuit-equations" class="level3">
+<h3 class="anchored" data-anchor-id="circuit-equations">Circuit equations</h3>
+<p>The following network equations were generted by the Sympy code.<br>
+<span class="math inline">\(- C_{1} s v_{2} + I_{V1} + v_{1} \left(C_{1} s + \frac{1}{R_{1}}\right) - \frac{v_{4}}{R_{1}} = 0\)</span><br>
+<span class="math inline">\(- C_{1} s v_{1} + I_{F1} + v_{2} \left(C_{1} s + \frac{1}{R_{2}}\right) - \frac{v_{5}}{R_{2}} = 0\)</span><br>
+<span class="math inline">\(I_{Ea1} - I_{F1} - I_{L1} = 0\)</span><br>
+<span class="math inline">\(I_{L1} - \frac{v_{1}}{R_{1}} + \frac{v_{4}}{R_{1}} = - I_{1}\)</span><br>
+<span class="math inline">\(- I_{V2} - \frac{v_{2}}{R_{2}} + \frac{v_{5}}{R_{2}} = 0\)</span><br>
+<span class="math inline">\(v_{1} = V_{1}\)</span><br>
+<span class="math inline">\(- v_{5} = V_{2}\)</span><br>
+<span class="math inline">\(- ea_{1} v_{1} + ea_{1} v_{4} + v_{3} = 0\)</span><br>
+<span class="math inline">\(I_{F1} - I_{V2} f_{1} = 0\)</span><br>
+<span class="math inline">\(- I_{L1} L_{1} s - v_{3} + v_{4} = 0\)</span></p>
+</section>
+<section id="symbolic-solution" class="level3">
+<h3 class="anchored" data-anchor-id="symbolic-solution">Symbolic solution</h3>
+<p>Sympy was used to solve the network equations and the node voltage results are shown below.<br>
+<span class="math inline">\(v_{1} = V_{1}\)</span><br>
+<span class="math inline">\(v_{2} = \frac{C_{1} R_{2} V_{1} s + V_{2} f_{1} - V_{2}}{C_{1} R_{2} s - f_{1} + 1}\)</span><br>
+<span class="math inline">\(v_{3} = \frac{I_{1} L_{1} R_{1} ea_{1} s + R_{1} V_{1} ea_{1}}{L_{1} s + R_{1} ea_{1} + R_{1}}\)</span><br>
+<span class="math inline">\(v_{4} = \frac{- I_{1} L_{1} R_{1} s + L_{1} V_{1} s + R_{1} V_{1} ea_{1}}{L_{1} s + R_{1} ea_{1} + R_{1}}\)</span><br>
+<span class="math inline">\(v_{5} = - V_{2}\)</span></p>
+</section>
+<section id="the-jupyter-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="the-jupyter-notebook">The Jupyter notebook</h3>
+<p>The notebook for this example is <a href="./SMNA_example.html">here</a>.</p>
+</section>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<p>Symbolic Modified Nodal Analysis github <a href="https://github.com/Tiburonboy/Symbolic-modified-nodal-analysis/tree/master">page</a>.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><a href="https://www.amazon.com/Numerical-Recipes-Art-Scientific-Computing/dp/B000P6EEEC">Numerical Recipes in C</a>: The Art of Scientific Computing, William H. Press, Brian P. Flannery, Saul A. Teukolsky, William T. Vetterling, Cambridge University Press; 1988<br>
+</li>
+<li><a href="https://spinningnumbers.org/assets/MNA75.pdf">The modified nodal approach to network analysis</a>, Chung-Wen Ho, A. Ruehli, P. Brennan, IEEE Transactions on Circuits and Systems ( Volume: 22, Issue: 6, Jun 1975 )<br>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Modified_nodal_analysis">Modified nodal analysis</a><br>
+</li>
+<li><a href="http://www.swarthmore.edu/NatSci/echeeve1/Ref/mna/MNA1.html">Analysis of Resistive Circuits</a><br>
+</li>
+<li><a href="http://www2.engr.arizona.edu/~ece570/session3.pdf">ECE 570 Session 3, Computer Aided Engineering for Integrated Circuits</a><br>
+</li>
+<li>D. E. Johnson, J. L. Hilburn, and J. R. Johnson, Basic Electric Circuit Analysis, Prentice-Hall, Inc.&nbsp;1978</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
