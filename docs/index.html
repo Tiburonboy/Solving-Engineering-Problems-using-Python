@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.537">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,7 +45,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -68,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Solving Engineering Problems<br>using Python</span>
     </a>
@@ -82,21 +89,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./source.html" rel="" target="">
- <span class="menu-text">Source</span></a>
+    <a class="nav-link" href="./source.html"> 
+<span class="menu-text">Source</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -111,21 +118,21 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#electrical-engineering-problems" id="toc-electrical-engineering-problems" class="nav-link" data-scroll-target="#electrical-engineering-problems">Electrical Engineering Problems</a>
+  <li><a href="#electrical-engineering" id="toc-electrical-engineering" class="nav-link" data-scroll-target="#electrical-engineering">Electrical engineering</a>
   <ul class="collapse">
   <li><a href="#circuit-analysis" id="toc-circuit-analysis" class="nav-link" data-scroll-target="#circuit-analysis">Circuit Analysis</a></li>
+  <li><a href="#filter-synthesis" id="toc-filter-synthesis" class="nav-link" data-scroll-target="#filter-synthesis">Filter synthesis</a></li>
   <li><a href="#electric-machines-electromechanics" id="toc-electric-machines-electromechanics" class="nav-link" data-scroll-target="#electric-machines-electromechanics">Electric Machines &amp; Electromechanics</a></li>
-  <li><a href="#lake-district-overshot-waterwheel-project-review-and-analysis" id="toc-lake-district-overshot-waterwheel-project-review-and-analysis" class="nav-link" data-scroll-target="#lake-district-overshot-waterwheel-project-review-and-analysis">Lake District Overshot Waterwheel Project Review and Analysis</a></li>
   <li><a href="#heat-transfer" id="toc-heat-transfer" class="nav-link" data-scroll-target="#heat-transfer">Heat transfer</a></li>
   <li><a href="#radio-and-rf-design" id="toc-radio-and-rf-design" class="nav-link" data-scroll-target="#radio-and-rf-design">Radio and RF design</a></li>
   <li><a href="#information-security" id="toc-information-security" class="nav-link" data-scroll-target="#information-security">Information security</a></li>
   <li><a href="#electromagnetics" id="toc-electromagnetics" class="nav-link" data-scroll-target="#electromagnetics">Electromagnetics</a></li>
   <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing">Signal processing</a></li>
   </ul></li>
-  <li><a href="#other-engineering-topics" id="toc-other-engineering-topics" class="nav-link" data-scroll-target="#other-engineering-topics">Other engineering topics</a>
-  <ul class="collapse">
-  <li><a href="#engineering-mathmatics" id="toc-engineering-mathmatics" class="nav-link" data-scroll-target="#engineering-mathmatics">Engineering Mathmatics</a></li>
-  </ul></li>
+  <li><a href="#civil-engineering" id="toc-civil-engineering" class="nav-link" data-scroll-target="#civil-engineering">Civil engineering</a></li>
+  <li><a href="#mechanical-engineering" id="toc-mechanical-engineering" class="nav-link" data-scroll-target="#mechanical-engineering">Mechanical engineering</a></li>
+  <li><a href="#engineering-economics" id="toc-engineering-economics" class="nav-link" data-scroll-target="#engineering-economics">Engineering economics</a></li>
+  <li><a href="#engineering-mathmatics" id="toc-engineering-mathmatics" class="nav-link" data-scroll-target="#engineering-mathmatics">Engineering mathmatics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -148,7 +155,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -161,60 +170,39 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Last update: 28 Nov 2023<br>
-This page is a test of Quarto. The Jupyter notebooks are rough drafts. So far I like how Quarto renders JupyterLab notebooks to HTML.<br>
-Grammer, typo and spelling checks are needed.</p>
+The Jupyter notebooks are rough drafts. Proof reading, grammer, typo and spelling checks are still needed.</p>
 </div>
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>This site provides a place to host a few of my JupyterLab notebooks. The <a href="https://jupyterlab.readthedocs.io/en/latest/">JupyterLab notebooks</a> use the <a href="https://www.sympy.org/">SymPy</a>, <a href="https://numpy.org/">NumPy</a>, <a href="https://scipy.org/">SciPy</a>, <a href="https://pandas.pydata.org/">Pandas</a> and the <a href="https://www.python.org/">Python</a> programming language libraries to analyize various topics. Jupyter Notebooks are used for a varity of programming projects. The notebooks combine code and narrative in the same ducument. Within a jupyter notebook there are three types of cells, code cells, markdown cells and raw cells. The code cells contain the python code, the markdown cells contain text that can be formated with markdown. The combination of code cells mingled with mardown cells provides a convient and powerful way to build a report containtaining narrative and the results of calculations.</p>
-<section id="electrical-engineering-problems" class="level2">
-<h2 class="anchored" data-anchor-id="electrical-engineering-problems">Electrical Engineering Problems</h2>
-<p>The following notebooks cover various topics in electrical engineering. <a href="https://en.wikipedia.org/wiki/Electrical_engineering">Electrical engineering</a> is an engineering discipline concerned with electricity, electronics and electromagnetism. My intrest is in circuits and systems, which covers theory, analysis, design, practical implementations of circuits and the application of circuit techniques to systems and to signal processing.</p>
+<p>As new notebooks are completed a hyperlink will be added. Topics in the outlines below are ideas for future notebooks.</p>
+<section id="electrical-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="electrical-engineering"><a href="https://en.wikipedia.org/wiki/Electrical_engineering">Electrical engineering</a></h2>
+<p>The following notebooks cover various topics in electrical engineering. Electrical engineering is an engineering discipline concerned with electricity, electronics and electromagnetism. My intrest is in circuits and systems, which covers theory, analysis, design, practical implementations of circuits and the application of circuit techniques to systems and to signal processing.</p>
 <section id="circuit-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="circuit-analysis">Circuit Analysis</h3>
 <section id="symbolic-modified-nodal-analysis-using-python" class="level4">
 <h4 class="anchored" data-anchor-id="symbolic-modified-nodal-analysis-using-python"><a href="https://tiburonboy.github.io/Symbolic-Modified-Nodal-Analysis-using-Python/">Symbolic Modified Nodal Analysis using Python</a></h4>
-<p>This is website is an online version of my book: Symbolic Modified Nodal Analysis using Python. Symbolic circuit analysis is a circuit analysis method that derives network equations with the circuit elements represented by symbols.</p>
+<p>The link above is to the online version of my book: Symbolic Modified Nodal Analysis using Python. Symbolic circuit analysis is a circuit analysis method that derives network equations with the circuit elements represented by symbols.</p>
 </section>
 <section id="source-free-series-circuit" class="level4">
 <h4 class="anchored" data-anchor-id="source-free-series-circuit"><a href="./Source free series circuit.html">Source free series circuit</a></h4>
 <p>In this notebook, the Python modules SymPy and SciPy are used to solve for currents and voltages in a series R, L and C circuit from the characteristic differential equation. A source free series RLC circuit consists of a resistor, capacitor and inductor connected in series with some initial energy stored either in the inductor, capacitor or both. Since the circuit is a single loop, the current flowing around the loop is the same current in each component. Both parallel and series connected circuits are usually presented in electrical circuit analysis classes. The two textbooks I used while in college presented the parallel connected circuit in some detail then kind of glossed over the series connect circuit since it is the dual of the other. The circuit to be analyzed is shown below and was drawn using EasyEDA, the link to the schematic is here.</p>
 </section>
+</section>
+<section id="filter-synthesis" class="level3">
+<h3 class="anchored" data-anchor-id="filter-synthesis">Filter synthesis</h3>
 <section id="scipy-analog-filter-design" class="level4">
 <h4 class="anchored" data-anchor-id="scipy-analog-filter-design"><a href="./SciPy analog filter design.html">SciPy analog filter design</a></h4>
 <p>This notebook describes the use of filter functions in the <a href="https://docs.scipy.org/doc/scipy/reference/signal.html">SciPy</a> library which can be used to design analog filters. Filters are one of the basic building blocks of signal processing. In general terms, filters used for signal processing can be divided into two groups, analog and digital filters. Analog filters, the topic of this notebook, are filters which can be described with linear differential equations and implemented in circuits which operate on continuously varying signals. A digital filter is a system that performs operations on a sampled, discrete-time signal with numerical operations. The first part of this notebook uses SciPy functions to calculate analog filter polynomials based on the classical <a href="https://en.wikipedia.org/wiki/Butterworth_filter">Butterworth</a>, <a href="https://en.wikipedia.org/wiki/Chebyshev_filter">Chebyshev</a>, <a href="https://en.wikipedia.org/wiki/Elliptic_filter">Elliptic</a> and <a href="https://en.wikipedia.org/wiki/Bessel_filter">Bessel</a> filters. The last section of this notebook walks through a Butterworth filter design and Cauer synthesis of an LC ladder type filter.</p>
-</section>
-<section id="add-links-from-blogger-to-symbolic-mna-book-problems" class="level4">
-<h4 class="anchored" data-anchor-id="add-links-from-blogger-to-symbolic-mna-book-problems">Add links from Blogger to Symbolic MNA book problems</h4>
-<p>These JupyterLab notebooks are going to be in the Symbolic MNA book as problems</p>
+<p>Other future topics</p>
 <ul>
-<li>Two port parameters<br>
+<li>State variable filter design<br>
 </li>
-<li>Coupled inductor circuits<br>
-</li>
-<li>Nodal analysis of a RLC circuit with controlled sources<br>
-</li>
-<li>Thevenin equivalent circuit<br>
-</li>
-<li>Bridge-T network analysis<br>
-</li>
-<li>Pi filter transfer function<br>
-</li>
-<li>Nullors, Gyrators, NICs, Current Conveyors<br>
-</li>
-<li>State variable filter: LP, HP, BP BR</li>
-<li><del>Bi-Quad LP, HP, BP, BR</del><br>
+<li>Bi-Quad LP, HP, BP, BR<br>
 </li>
 <li>Sallen Key active filter<br>
-</li>
-<li>Wien bridge oscillator<br>
-</li>
-<li>Chua’s circuit<br>
-</li>
-<li>Switched mode power supply<br>
-</li>
-<li>T-coil circuit<br>
 </li>
 <li>RLC, initial conditions and inverse Laplace transform</li>
 </ul>
@@ -226,10 +214,9 @@ Grammer, typo and spelling checks are needed.</p>
 <h4 class="anchored" data-anchor-id="overshot-waterwheel-hydroelectric-power-system-analysis"><a href="./Overshot waterwheel hydroelectric power system analysis.html">Overshot waterwheel hydroelectric power system analysis</a></h4>
 <p>This notebook examines the construction of a small hydroelectric system built by <a href="https://www.youtube.com/c/LoftisPartyofSix/about">Michael Loftis</a>, a YouTuber, real estate and insurance broker, who had a hydro system built for his off-grid cabin on 50 acres in the Ozark Mountains. The cabin and hydro system are unique and look really interesting. The cabin is available for rent as an AirBnB and is located in Thornfield, Missouri. The cabin is now advertised as having some solar panels with a gas powered generator to supplement the solar. Michael’s hydroelectric project looked really interesting and I was curious about the technical details. In the YouTube videos, <a href="https://www.youtube.com/watch?v=VFQQI96CMK8">Did we MAKE HYDRO POWER Using Our Waterwheel for Self Reliant Off Grid Living?</a> and <a href="https://www.youtube.com/watch?v=iMqMIJGlrdc">Possible Hydro Power Solutions for our Off Grid Cabin? A BIG THANKS TO YOU!!</a>, he discusses the status of the system. I was disappointed to hear that his system wasn’t working, because at first glance it looked very impressive. I decided to learn a little about small hydroelectric systems and document in this notebook what I’ve learned.</p>
 </section>
-</section>
-<section id="lake-district-overshot-waterwheel-project-review-and-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="lake-district-overshot-waterwheel-project-review-and-analysis"><a href="./Lake District Overshot Waterwheel Project.html">Lake District Overshot Waterwheel Project Review and Analysis</a></h3>
-<p>This notebook examines the design of a small hydroelectric water wheel built by <a href="https://www.krisharbour.co.uk/">Kris Harbour Natural Building</a>. The water wheel is a 2.1 meter diameter wheel and he expected to generate between 1.5 and 1.7 kW. The project is documented in four YouTube videos, links are here: <a href="https://www.youtube.com/watch?v=7l5xxIGiW7o">Part 1</a>, <a href="https://www.youtube.com/watch?v=PvgeSJKlNUs">Part 2</a>, <a href="https://www.youtube.com/watch?v=DInwut0DzTQ">Part 3</a> and <a href="https://www.youtube.com/watch?v=WPICp3c_qIQ">Part 4</a>. The videos provide some technical details, but not enough to satisfy me. My JupyterLab notebook will cover the project description, the water wheel design, generator, flume, inverter and other topics he did not address such as instrumentation, safety, maintenance, reliability and economics. (this is a work in progress)</p>
+<section id="lake-district-overshot-waterwheel-project-review-and-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="lake-district-overshot-waterwheel-project-review-and-analysis"><a href="./Lake District Overshot Waterwheel Project.html">Lake District Overshot Waterwheel Project Review and Analysis</a></h4>
+<p>This notebook examines the design of a small hydroelectric water wheel built by <a href="https://www.krisharbour.co.uk/">Kris Harbour Natural Building</a>. The water wheel is a 2.1 meter diameter wheel and he expected to generate between 1.5 and 1.7 kW. The project is documented in four YouTube videos, links are here: <a href="https://www.youtube.com/watch?v=7l5xxIGiW7o">Part 1</a>, <a href="https://www.youtube.com/watch?v=PvgeSJKlNUs">Part 2</a>, <a href="https://www.youtube.com/watch?v=DInwut0DzTQ">Part 3</a>, <a href="https://www.youtube.com/watch?v=WPICp3c_qIQ">Part 4</a> and <a href="https://www.youtube.com/watch?v=RWTgMWRc2W4">Part 5</a>. The videos provide some technical details, but not enough to satisfy me. My JupyterLab notebook will cover the project description, the water wheel design, generator, flume, inverter and other topics he did not address such as instrumentation, safety, maintenance, reliability and economics. (this is a work in progress)</p>
 <p>Other future topics</p>
 <ul>
 <li>electric power, motors, magnetics<br>
@@ -239,10 +226,13 @@ Grammer, typo and spelling checks are needed.</p>
 <li>Electric propulsion</li>
 </ul>
 </section>
+</section>
 <section id="heat-transfer" class="level3">
 <h3 class="anchored" data-anchor-id="heat-transfer">Heat transfer</h3>
 <ul>
-<li>Heat sink design: TPA6021A4 with 20-pin DIP anodized heat sink (Aavid Thermalloy 580400B00000, Digi-Key HS181-ND)</li>
+<li>Heat sink calculations for audio power amplifier <!--- : TPA6021A4 with 20-pin DIP anodized heat sink (Aavid Thermalloy 580400B00000, Digi-Key HS181-ND) ---></li>
+<li>Cooling of a PCB in a box (example 15-12)</li>
+<li>Cooling of a sealed box (example 15-10)</li>
 </ul>
 </section>
 <section id="radio-and-rf-design" class="level3">
@@ -286,14 +276,22 @@ Grammer, typo and spelling checks are needed.</p>
 </ul>
 </section>
 <section id="information-security" class="level3">
-<h3 class="anchored" data-anchor-id="information-security">Information security</h3>
+<h3 class="anchored" data-anchor-id="information-security"><a href="https://en.wikipedia.org/wiki/Information_security">Information security</a></h3>
 <section id="password-card" class="level4">
 <h4 class="anchored" data-anchor-id="password-card"><a href="./password_card.html">Password card</a></h4>
 <p>This notebook describes the use of a password card and the Python code that generates the password card. The password card is a grid of random letters, numbers and special characters that provides a convenient aid to generate and remember long and complex passwords. A basic description of the password card and instructions are provided along with the Python code used to generate the password card. A security analysis and an analysis of alternatives is provided.</p>
+<ul>
+<li>Diceware<br>
+</li>
+<li>Encrypt text for SMS</li>
+</ul>
 </section>
 </section>
 <section id="electromagnetics" class="level3">
 <h3 class="anchored" data-anchor-id="electromagnetics">Electromagnetics</h3>
+<ul>
+<li>coil design</li>
+</ul>
 </section>
 <section id="signal-processing" class="level3">
 <h3 class="anchored" data-anchor-id="signal-processing">Signal processing</h3>
@@ -305,18 +303,65 @@ Grammer, typo and spelling checks are needed.</p>
 </ul>
 </section>
 </section>
-<section id="other-engineering-topics" class="level2">
-<h2 class="anchored" data-anchor-id="other-engineering-topics">Other engineering topics</h2>
+<section id="civil-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="civil-engineering"><a href="https://en.wikipedia.org/wiki/Civil_engineering">Civil engineering</a></h2>
 <ul>
+<li>Design of footings</li>
+<li>Capacity of foudations</li>
+</ul>
+</section>
+<section id="mechanical-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="mechanical-engineering"><a href="https://en.wikipedia.org/wiki/Mechanical_engineering">Mechanical engineering</a></h2>
+<ul>
+<li>Two point supported beam</li>
+<li>Cantilever beam</li>
+<li>Thermal effictiveness of fins</li>
+<li>Fluid flow in pipes</li>
+<li>Area moment of inertia</li>
+<li>Helical spring</li>
 <li>atmospheric water extraction</li>
 <li>canaon ball balistics</li>
-<li>thermal wall (what ever that’s called)</li>
+<li>Trombe wall</li>
+<li>Boiling eggs (example 4-3)</li>
 </ul>
-<section id="engineering-mathmatics" class="level3">
-<h3 class="anchored" data-anchor-id="engineering-mathmatics">Engineering Mathmatics</h3>
-
-
 </section>
+<section id="engineering-economics" class="level2">
+<h2 class="anchored" data-anchor-id="engineering-economics"><a href="https://en.wikipedia.org/wiki/Engineering_economics">Engineering economics</a></h2>
+<ul>
+<li>Value analysis</li>
+<li>Linear programming</li>
+<li>Critical path economy</li>
+<li>Interest and money - time relationships</li>
+<li>Depreciation and valuation</li>
+<li>Capital budgeting</li>
+<li>Risk, uncertainty, and sensitivity analysis</li>
+<li>Fixed, incremental, and sunk costs</li>
+<li>Replacement studies</li>
+<li>Minimum cost formulas</li>
+<li>Various economic studies in relation to both public and private ventures</li>
+</ul>
+</section>
+<section id="engineering-mathmatics" class="level2">
+<h2 class="anchored" data-anchor-id="engineering-mathmatics"><a href="https://en.wikipedia.org/wiki/Engineering_mathematics">Engineering mathmatics</a></h2>
+<ul>
+<li>Differential equations</li>
+<li>Linear differential equations</li>
+<li>Simutaneous linear differential equations</li>
+<li>Fourier series and integrals</li>
+<li>Laplace transform</li>
+<li>Partial differential equations</li>
+<li>Bessel functions</li>
+<li>Functions of a complex variable</li>
+<li>Integration in the complex plane</li>
+<li>Theory of reidues</li>
+<li>Conformal mapping</li>
+<li>Vector analysis</li>
+<li>Taylor series</li>
+<li>Gamma and Beta functions</li>
+<li>Numerical soultion of equations</li>
+</ul>
+
+
 </section>
 </section>
 
@@ -400,10 +445,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -413,8 +457,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -427,6 +480,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -470,6 +637,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -495,6 +663,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -555,6 +749,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
