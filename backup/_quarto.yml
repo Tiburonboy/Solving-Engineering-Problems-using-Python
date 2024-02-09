@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Solving Engineering Problems<br>using Python"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - source.qmd
+      - about.qmd
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+

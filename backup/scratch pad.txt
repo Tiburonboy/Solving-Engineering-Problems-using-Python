@@ -1,0 +1,40 @@
+# Other code saved here
+
+#### [Symbolic Modified Nodal Analysis](Symbolic Modified Nodal Analysis.qmd)   
+The Symbolic Modified Nodal Analysis uses the modified nodal analysis technique to derive a system of equations for the circuit's node voltages and branch currents in terms the Laplace variable 's' and the element's symbol. (remove link to qmd and link to github page for Symbolic MNA book)  
+
+#### [Two amplifier RIAA phono preamp](Two amplifier RIAA Phono Preamp.ipynb) 
+This notebook analyize the phono preamplifier circuit from the application note [AN-346 High-Performance Audio Applications of the LM833](https://www.ti.com/lit/an/snoa586d/snoa586d.pdf). The schematic for the phono preamplifier was entered into [LTSpice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html) and the circuit netlist was generated. [Modified Nodal Analysis](https://en.wikipedia.org/wiki/Modified_nodal_analysis) was used to derive the circuit equations and Python libraries were used to solve the equations. The preamplifier transfer function was used to calculate the Bode, impuse and step response plots. The Python results were compared to those from LTSpice. Deviation from the RIAA response curve was also examined. Practical implementation considerations are discussed. The sensitivity, error budget and temperature analysis for the preamplifier circuit was performed. Alternate preamplifier circuits were analyized and evaluated. Finally, a new circuit was sythysized from the inverse RIAA tranfser function. The JupyterLab notebook showcases the use of python in electrical engineering and circuit analysis. (remove this link since it's part of the Symbolic MNA book)
+
+
+
+
+
+# Make to a new folder for Stocks
+
+## Discount Cash Flow Analysis of Equities
+The following notebooks use discount cash flow analysis to determine if the stock of a company should be purchased. A discounted cash flow analysis requires making assumptions about a company’s sales growth, profit margins, depreation rate, investment rate, cost of capital, debt, dividends etc. Historical data is used to make these assumptions.  
+
+Here are two notebooks posted as a test.
+
+#### [Federal Realty (FRT)](FRT analysis.ipynb)
+[Federal Realty](https://www.federalrealty.com/investors/overview/) is a recognized leader in the ownership, operation and redevelopment of high-quality retail-based properties located primarily in major coastal markets from Washington, D.C. to Boston as well as San Francisco and Los Angeles. The company specializes in the ownership, management, and redevelopment of high quality retail and mixed-use properties located primarily in densely populated and affluent communities in strategically selected metropolitan markets in the Northeast and Mid-Atlantic regions of the United States, as well as in California and South Florida. As of December 31, 2020, the company owned or had a majority interest in community and neighborhood shopping centers and mixed-use properties which are operated as 101 predominantly retail real estate projects comprising approximately 23.4 million square feet.
+ 
+#### [Norwegian Cruise Line Holdings (NCLH)](NCLHv1 analysis.ipynb)
+This notebook was developed to analyze the financial performance of NCLH. The analysis presented primarily uses financial data prior to fiscal year 2019. Most of which is irrelevant now, since NCLH's consolidated financial sheets are dramatically different following the shock of the pandemic. From a financial perspective, it's not really possible to compare the finances of post pandemic NCL to the pre pandemic NCL. On account of the large discontinuity in operations, the company's pre and post pandemic financials need to be considered separately.
+
+#### [Hanesbrands Inc. (HBI)](HBI analysis.ipynb) 
+This notebook presents analysis and commentary for HanesBrands (NYSE: HBI). The analysis presented is based on examination of the business fundamentals. A discount cash flow analysis is used to estimate the intrinsic value of the company. A second evaluation method based on earnings history and historical price to earnings ratio is calculated. Using some judgment calls, as explained in the analysis, an intrinsic stock value is calculated. Some shares of HBI were purchased based on dividend yield and the intrinsic stock value. As described in the analysis, HBI suspended the dividend in order to direct funds to pay down the debt. Since the company is not paying a dividend, does it make sense to hold the company as a value stock? The analysis concludes that there is some merit to think the company might be a value stock, but as a non-dividend paying stock, having HBI does not fit my investment goals of holding quality dividend paying stocks.
+
+At the time of writing this report, some stock analysis were suggesting that HBI might be a value play, that is, buying this stock on the cheap and holding until the price recovers or the dividend is re-instated. See the articles [here](https://finance.yahoo.com/m/59a9e7c5-0c32-38f5-8da9-ea51e4efce8b/this-left-for-dead-stock-may.html) and [here](https://www.zacks.com/stock/news/2124782/hanesbrands-hbi-exhibits-bright-prospects-headwinds-persist). My analysis shown below indicates that the even if NOP can be increased over time by 10%, the ratio of NOP to total liabilities remains above 7.  (need to recalculate projected total liabilities and clean up the analysis). Historically the ratio was near 5 when HBI initiated their dividend.
+
+
+#### Other notebooks to be converted from Blogger
+- U.S. Bancorp (USB)  
+- Bristol-Myers Squibb Company (BMY)  
+- International Paper Company (IP)  
+ 
+
+## Equities Technical Analysis
+A collection of notebooks analyzing the stockmarket statistical trends of price movement and volume.   
+

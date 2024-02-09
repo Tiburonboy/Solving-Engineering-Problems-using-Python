@@ -1,0 +1,8 @@
+---
+title: "About"
+---
+
+This site is a collection of Jupyter Notebooks describing problems solved with the aid of Python and the SciPy, SymPy, NumPy, Pandas and Matplotlib libraries. Jupyter notebooks are documents that allow code and markdown text to be contained in the same document and provides an excellent way to document the analysis and results of the problem solving effort.  
+
+This site was built using JupyterLab notebooks and [Quarto](https://quarto.org/), which is an open-source scientific and technical publishing system. 
+

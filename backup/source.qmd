@@ -1,0 +1,13 @@
+---
+title: "Source"
+---
+
+Links to my github page.  
+
+|Jupyter Nodebook | Link to Github |
+|---|---|
+|[Source free series circuit](Source free series circuit.ipynb) | [link](https://github.com/Tiburonboy/EE_jupyter_notebooks/tree/main/Source%20free%20series%20circuit) |
+|[SciPy analog filter design](SciPy analog filter design.ipynb) | [link](https://github.com/Tiburonboy/EE_jupyter_notebooks/tree/main/Analog%20filter%20design) |
+|[Overshot waterwheel hydroelectric power system analysis](Overshot waterwheel hydroelectric power system analysis.ipynb) | [link](https://github.com/Tiburonboy/EE_jupyter_notebooks/tree/main/Lake%20District%20Overshot%20Waterwheel%20Project) |
+|[Lake District Overshot Waterwheel Project Review and Analysis](Lake District Overshot Waterwheel Project.ipynb) | [link](https://github.com/Tiburonboy/EE_jupyter_notebooks/tree/main/Lake%20District%20Overshot%20Waterwheel%20Project) |
+
