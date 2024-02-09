@@ -128,6 +128,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#information-security" id="toc-information-security" class="nav-link" data-scroll-target="#information-security">Information security</a></li>
   <li><a href="#electromagnetics" id="toc-electromagnetics" class="nav-link" data-scroll-target="#electromagnetics">Electromagnetics</a></li>
   <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing">Signal processing</a></li>
+  <li><a href="#circuit-python" id="toc-circuit-python" class="nav-link" data-scroll-target="#circuit-python">Circuit Python</a></li>
   </ul></li>
   <li><a href="#civil-engineering" id="toc-civil-engineering" class="nav-link" data-scroll-target="#civil-engineering">Civil engineering</a></li>
   <li><a href="#mechanical-engineering" id="toc-mechanical-engineering" class="nav-link" data-scroll-target="#mechanical-engineering">Mechanical engineering</a></li>
@@ -169,8 +170,15 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Last update: 28 Nov 2023<br>
-The Jupyter notebooks are rough drafts. Proof reading, grammer, typo and spelling checks are still needed.</p>
+<p>Last update: 21 Jan 2024</p>
+<ul>
+<li>These pages are draft copies and only half baked.</li>
+<li>Many sections are still under construction.</li>
+<li>Only preliminary files have been posted to github.</li>
+<li>Spelling and grammar checks have not been completed.</li>
+<li>The pages are posted for testing only.<br>
+</li>
+</ul>
 </div>
 </div>
 <section id="introduction" class="level1">
@@ -196,15 +204,20 @@ The Jupyter notebooks are rough drafts. Proof reading, grammer, typo and spellin
 <section id="scipy-analog-filter-design" class="level4">
 <h4 class="anchored" data-anchor-id="scipy-analog-filter-design"><a href="./SciPy analog filter design.html">SciPy analog filter design</a></h4>
 <p>This notebook describes the use of filter functions in the <a href="https://docs.scipy.org/doc/scipy/reference/signal.html">SciPy</a> library which can be used to design analog filters. Filters are one of the basic building blocks of signal processing. In general terms, filters used for signal processing can be divided into two groups, analog and digital filters. Analog filters, the topic of this notebook, are filters which can be described with linear differential equations and implemented in circuits which operate on continuously varying signals. A digital filter is a system that performs operations on a sampled, discrete-time signal with numerical operations. The first part of this notebook uses SciPy functions to calculate analog filter polynomials based on the classical <a href="https://en.wikipedia.org/wiki/Butterworth_filter">Butterworth</a>, <a href="https://en.wikipedia.org/wiki/Chebyshev_filter">Chebyshev</a>, <a href="https://en.wikipedia.org/wiki/Elliptic_filter">Elliptic</a> and <a href="https://en.wikipedia.org/wiki/Bessel_filter">Bessel</a> filters. The last section of this notebook walks through a Butterworth filter design and Cauer synthesis of an LC ladder type filter.</p>
-<p>Other future topics</p>
+<p>Future topics</p>
+<ul>
+<li>Polynimial implementations</li>
+<li>Active implementations
 <ul>
 <li>State variable filter design<br>
 </li>
 <li>Bi-Quad LP, HP, BP, BR<br>
 </li>
-<li>Sallen Key active filter<br>
-</li>
-<li>RLC, initial conditions and inverse Laplace transform</li>
+<li>Sallen Key active filter</li>
+</ul></li>
+<li>Crystal filters</li>
+<li>Helical filters</li>
+<li>Wave guide filters</li>
 </ul>
 </section>
 </section>
@@ -217,7 +230,7 @@ The Jupyter notebooks are rough drafts. Proof reading, grammer, typo and spellin
 <section id="lake-district-overshot-waterwheel-project-review-and-analysis" class="level4">
 <h4 class="anchored" data-anchor-id="lake-district-overshot-waterwheel-project-review-and-analysis"><a href="./Lake District Overshot Waterwheel Project.html">Lake District Overshot Waterwheel Project Review and Analysis</a></h4>
 <p>This notebook examines the design of a small hydroelectric water wheel built by <a href="https://www.krisharbour.co.uk/">Kris Harbour Natural Building</a>. The water wheel is a 2.1 meter diameter wheel and he expected to generate between 1.5 and 1.7 kW. The project is documented in four YouTube videos, links are here: <a href="https://www.youtube.com/watch?v=7l5xxIGiW7o">Part 1</a>, <a href="https://www.youtube.com/watch?v=PvgeSJKlNUs">Part 2</a>, <a href="https://www.youtube.com/watch?v=DInwut0DzTQ">Part 3</a>, <a href="https://www.youtube.com/watch?v=WPICp3c_qIQ">Part 4</a> and <a href="https://www.youtube.com/watch?v=RWTgMWRc2W4">Part 5</a>. The videos provide some technical details, but not enough to satisfy me. My JupyterLab notebook will cover the project description, the water wheel design, generator, flume, inverter and other topics he did not address such as instrumentation, safety, maintenance, reliability and economics. (this is a work in progress)</p>
-<p>Other future topics</p>
+<p>Future topics</p>
 <ul>
 <li>electric power, motors, magnetics<br>
 </li>
@@ -300,6 +313,13 @@ The Jupyter notebooks are rough drafts. Proof reading, grammer, typo and spellin
 <li>Discrete Fourier transforms</li>
 <li>Windows</li>
 <li>Filters</li>
+</ul>
+</section>
+<section id="circuit-python" class="level3">
+<h3 class="anchored" data-anchor-id="circuit-python">Circuit Python</h3>
+<ul>
+<li>A description is <a href="https://learn.adafruit.com/welcome-to-circuitpython">here</a> and <a href="https://circuitpython.org/">here</a></li>
+<li>A list of hardware supported is <a href="https://circuitpython.org/downloads?sort-by=date-desc">here</a></li>
 </ul>
 </section>
 </section>
