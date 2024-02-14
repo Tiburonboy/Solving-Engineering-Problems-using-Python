@@ -44,6 +44,20 @@ Future topics
 - Helical filters
 - Wave guide filters
 
+### [Analog Circuits](https://en.wikipedia.org/wiki/Electronic_circuit)
+Analog electronic circuits are those in which current or voltage vary continuously with time to correspond to the information being represented. The basic components of analog circuits are wires, resistors, capacitors, inductors, diodes, and transistors.
+
+Future topics
+
+- semiconductors
+- Diodes
+- Transistors
+- Amplifiers
+- Wave forming circuits
+- Power electronics
+- Analog computing
+- Vacuum tube models for SPICE
+
 ### Electric Machines & Electromechanics
 
 #### [Overshot waterwheel hydroelectric power system analysis](Overshot waterwheel hydroelectric power system analysis.ipynb)
